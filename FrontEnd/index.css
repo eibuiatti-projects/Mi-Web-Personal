@@ -351,6 +351,7 @@ textarea{
   padding: 10px;
   font-size: 1.2rem;
   box-shadow: 0 2px 30px -2px  #44494e;
+  outline: none;
 }
 
 textarea:hover{
@@ -369,7 +370,8 @@ input{
   border-width: 2px;
   padding: 10px;
   font-size: 1.2rem;
-  box-shadow: 0 2px 30px -2px  #44494e
+  box-shadow: 0 2px 30px -2px  #44494e;
+  outline: none;
 }
 
 input:hover{
@@ -380,6 +382,13 @@ input::placeholder{
   color: lightgray;
 }
 
+.invalid{
+  background: rgb(250, 69, 69);
+}
+
+.valid{
+  background: rgb(90, 255, 90);
+}
 
 
 /*------------------------------------------------ FOOTER ------------------------------------------------*/

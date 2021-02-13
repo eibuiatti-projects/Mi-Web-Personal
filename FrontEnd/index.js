@@ -122,10 +122,76 @@ inViewportTotally(miDiv, cambiaVisibilidad);
 
 /* Formulario */
 
-const form = document.querySelector('#form')
-form.addEventListener('submit',formHandler)
+const URL_ = "http://localhost:3001/"
+const nombre = document.querySelector(".nombre");
+const email = document.querySelector(".email");
+const mensaje = document.querySelector(".mensaje");
 
-function formHandler(e){
-  e.preventDefault()
+const form = document.querySelector("#form");
+const btnSubmit = document.querySelector(".enviar");
 
+
+const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+form.addEventListener("submit", formHandler);
+email.addEventListener("input", emailHandler);
+nombre.addEventListener("input", nombreHandler);
+btnSubmit.addEventListener ("click", btnSubmitHandler);
+
+function formHandler(event){
+    event.preventDefault();
+    fetch(`${URL_}submitForm`,{
+    method:'POST',
+    body:JSON.stringify({name:nombre.value, email:email.value, message:mensaje.value}),
+    headers:{'Content-Type':'application/json'}
+}).then((res)=>{
+    nombre.value = "";
+    email.value = "";
+    mensaje.value = "";
+    resetForm();
+    return res.json()
+}).then((res)=>{
+    alert("Formulario enviado correctamente");
+});
 }
+
+function emailHandler(){
+  if (regex.test(email.value)) {
+    email.classList.remove("invalid");
+    email.classList.add("valid");
+  } else {
+    email.classList.remove("valid");
+    email.classList.add("invalid");
+  }
+}
+
+function nombreHandler(){ 
+  if (nombre.value === null || nombre.value === "") {
+    nombre.classList.remove("valid");
+    nombre.classList.add("invalid");
+  } else {
+    nombre.classList.remove("invalid");
+    nombre.classList.add("valid");
+  }
+}
+
+function btnSubmitHandler(){
+  if (nombre.value === null || nombre.value === "") {
+    nombre.setCustomValidity("No se aceptan campos vacíos!!!");
+  } else {
+    nombre.setCustomValidity("");
+  }
+  if (regex.test(email.value)) {
+    email.setCustomValidity("");
+  } else {
+    email.setCustomValidity("El campo debe ser del tipo 'ejemplo@ejemplo.com' !!!");
+  }
+}
+
+function resetForm(){
+  nombre.classList.remove("valid");
+  nombre.classList.remove("invalid");
+  email.classList.remove("invalid");
+  email.classList.remove("valid");
+}
+  
