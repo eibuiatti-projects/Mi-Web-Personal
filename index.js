@@ -122,7 +122,7 @@ inViewportTotally(miDiv, cambiaVisibilidad);
 
 /* Formulario */
 
-const URL_ = "http://localhost:3001/"
+const URL_ = "https://mi-web-personal-backend.herokuapp.com/"
 const nombre = document.querySelector(".nombre");
 const email = document.querySelector(".email");
 const mensaje = document.querySelector(".mensaje");
