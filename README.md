@@ -1,4 +1,3 @@
-# 
 <h1>Mi-Web-Personal-Frontend</h1> 
 
 <p> "Mi-Web-Personal-Frontend" es una de las 3 partes que hacen al funcionamiento integral de mi Página Web Personal y cuanta con 6 secciones:</p>
