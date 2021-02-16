@@ -223,7 +223,7 @@ hr{
   justify-content: center;
 }
 
-.container-principal{
+.container-principal-tec{
   padding-top: 50px;
   padding-bottom: 100px;
   width: 70%;
@@ -262,8 +262,8 @@ hr{
 #portafolio{
   width: 100%;
   background-color: #44494e;
-  font-size: 58px;
-  height:900px;
+  font-size: 18px;
+  line-height: 28px;
   padding-top: 50px;
   padding-bottom: 100px;
   color: gainsboro;
@@ -271,11 +271,79 @@ hr{
   display: flex;   
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.construccion{
+.container-principal-port{
+  padding-top: 50px;
+  padding-bottom: 100px;
+  width: 70%;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1, 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.container-proyecto{
+  padding:10px;
+  width: 320px;
+  height: 650px;
+  text-align: center;
+  background-color: black;
+  border-radius: 20px;
+  box-shadow: 0 2px 30px -2px white;
+}
+
+.descripcion-proyecto{
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contenido-proyecto{
+  color: lightslategray;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;  
+}
+
+.contenido-proyecto h3{
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.links a{
+  display: block;
+  margin-bottom: 15px;
+}
+
+.links a:hover{
   color: coral;
-  font-size: 300px;
+}
+
+.imagen-proyecto {
+  width: 300px;
+  height: 220px;
+}
+
+#imagen-mi-web-personal-frontend{
+  margin: auto;
+  border-radius: 10px;
+  background: url('./recursos/mi-web-personal-frontend.png') no-repeat center center/cover;
+}
+
+#imagen-mi-web-personal-backend{
+  margin: auto;
+  border-radius: 10px;
+  background: url('./recursos/mi-web-personal-backend.png') no-repeat center center/cover;
+}
+
+#imagen-ermail{
+  margin: auto;
+  border-radius: 10px;
+  background: url('./recursos/ermail.png') no-repeat center center/cover;
 }
 
 
@@ -383,11 +451,13 @@ input::placeholder{
 }
 
 .invalid{
-  background: rgb(250, 69, 69);
+  border-color:red;
+  box-shadow: 0 2px 20px -2px red;
 }
 
 .valid{
-  background: rgb(90, 255, 90);
+  border-color:rgb(21, 255, 0);
+  box-shadow: 0 2px 20px -2px rgb(21, 255, 0);
 }
 
 
@@ -405,6 +475,14 @@ footer{
 
 /*------------------------------------------------ MEDIA QUERYS ------------------------------------------------*/
 
+@media (max-width: 1530px) {
+
+  .container-principal-port{
+    width: 85%;
+  }
+
+}
+
 @media (max-width: 1320px) {
 
   .tecnologia-container {
@@ -420,6 +498,11 @@ footer{
     width: 35%;
   }
 
+  .container-principal-port{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
   form{
     width: 80%;
   }
@@ -428,7 +511,7 @@ footer{
 
 @media (max-width: 1030px) {
 
-  .contenido_portada, .educacion-container, .contacto-container, .container-principal, hr, .form-container{
+  .contenido_portada, .educacion-container, .contacto-container, .container-principal-tec, hr, .form-container, .container-principal-port{
     width: 90%;
   }
 
@@ -436,12 +519,33 @@ footer{
 
 @media (max-width: 800px) {
   
-  .container-principal{
+  .container-principal-tec{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr) ;
     gap: 10px;
   }
 
+  .container-principal-port{
+    gap: 15px;
+  }
+  
+  .container-proyecto{
+    padding:10px;
+    width: 256px;
+    height: 700px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px -2px white;
+  }
+ 
+  .descripcion-proyecto{
+    height:504px;
+  }
+
+  .imagen-proyecto {
+    width: 240px;
+    height: 176px;
+  }
+  
   form{
     width: 90%;
   }
@@ -489,22 +593,28 @@ footer{
     padding-top: 30px;
   }
 
-  .container-principal{
+  .container-principal-tec{
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
   }
   
-  input, textarea, .container-item span{
-    font-size: 1rem;
-  }
-
   #portafolio{
-    font-size: 28px;
-    height: 600px;
+    font-size: 14px;
+    line-height: 24px;
   }
 
-  .construccion{
-    font-size: 200px;
+  .container-principal-port{
+   display: flex;
+   flex-direction: column;
+   align-content: center;
+  }
+
+  .container-proyecto{
+    height: 550px;
+  }
+
+  .descripcion-proyecto{
+    height:354px;
   }
 
   #contacto{
@@ -519,7 +629,11 @@ footer{
   form{
     width: 100%;
   }
-   
+  
+  input, textarea, .container-item span{
+    font-size: 1rem;
+  }
+
 }
 
 @media (max-width: 500px) {
@@ -568,7 +682,7 @@ footer{
     padding-top: 0px;
   }
 
-  .container-principal{
+  .container-principal-tec{
     padding: 0px;
   }
 
@@ -578,8 +692,11 @@ footer{
   }
 
   #portafolio{
-    padding:0;
-    height: 500px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .container-principal-port{
+    padding-top: 0px;
   }
 
   #contacto{
